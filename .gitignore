@@ -1,0 +1,5 @@
+## Editor settings
+.idea
+
+## Local Environment variable file
+.envrc
