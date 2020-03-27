@@ -15,9 +15,11 @@ lerna-debug.log*
 
 # Tests
 /coverage
+/src/coverage
 /.nyc_output
 
 # IDEs and editors
+*.iml
 /.idea
 .project
 .classpath
@@ -32,3 +34,11 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Database and TypeORM
+ormconfig.json
+*.sqlite
+
+# Stryker
+.stryker-tmp/
+reports/
