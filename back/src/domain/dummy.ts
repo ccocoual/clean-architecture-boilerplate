@@ -1,8 +1,9 @@
 import { isEmpty } from 'lodash';
+import { DummyInterface } from './dummy.interface';
 import { InvalidDummyError } from './invalid-dummy.error';
 import { DummyId } from './type-aliases';
 
-export class Dummy {
+export class Dummy implements DummyInterface {
   id: DummyId;
   value: string;
 

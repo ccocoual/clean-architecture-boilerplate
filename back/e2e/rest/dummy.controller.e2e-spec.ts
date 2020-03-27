@@ -1,9 +1,11 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import request, { Response } from 'supertest';
+import { ItemNotFoundError } from '../../src/domain/common-errors/item-not-found.error';
 import { Dummy } from '../../src/domain/dummy';
 import { InvalidDummyError } from '../../src/domain/invalid-dummy.error';
 import { EnvironmentConfigService } from '../../src/infrastructure/config/environment-config/environment-config.service';
+import { DummyResponseInterface } from '../../src/infrastructure/rest/models/dummy-response.interface';
 import { RestModule } from '../../src/infrastructure/rest/rest.module';
 import { ProxyServicesDynamicModule } from '../../src/infrastructure/use_cases_proxy/proxy-services-dynamic.module';
 import { UseCaseProxy } from '../../src/infrastructure/use_cases_proxy/use-case-proxy';
@@ -44,28 +46,41 @@ describe('infrastructure/rest/DummyController (e2e)', () => {
     await app.init();
   });
 
-  describe('GET /api/dummy', () => {
+  describe('GET /dummy', () => {
     it('should return http status code OK with found dummies', () => {
       // given
-      const foundDummies: Dummy[] = [{ id: 1, value: 'value1' } as Dummy, { id: 2, value: 'value2' } as Dummy];
+      const foundDummies: DummyResponseInterface[] = [{ id: 1, value: 'value1' } as Dummy, { id: 2, value: 'value2' } as DummyResponseInterface];
       (mockGetAllDummyData.execute as jest.Mock).mockReturnValue(Promise.resolve(foundDummies));
 
       // when
-      const testRequest: request.Test = request(app.getHttpServer()).get('/api/dummy');
+      const testRequest: request.Test = request(app.getHttpServer()).get('/dummy');
 
       // then
       return testRequest.expect(200).expect(foundDummies);
     });
+
+    it('should return http not found when dummy not found', () => {
+      // given
+      (mockGetAllDummyData.execute as jest.Mock).mockImplementation(() => {
+        throw new ItemNotFoundError('Document not found');
+      });
+
+      // when
+      const testRequest: request.Test = request(app.getHttpServer()).get('/dummy');
+
+      // then
+      return testRequest.expect(404);
+    });
   });
 
-  describe('POST /api/dummy', () => {
+  describe('POST /dummy', () => {
     it('should create body using value from body', () => {
       // given
       const value: string = 'a-value';
 
       // when
       const testRequest: request.Test = request(app.getHttpServer())
-        .post('/api/dummy')
+        .post('/dummy')
         .send({ value });
 
       // then
@@ -81,7 +96,7 @@ describe('infrastructure/rest/DummyController (e2e)', () => {
 
       // when
       const testRequest: request.Test = request(app.getHttpServer())
-        .post('/api/dummy')
+        .post('/dummy')
         .send({ value: 'a-value' });
 
       // then
@@ -99,7 +114,7 @@ describe('infrastructure/rest/DummyController (e2e)', () => {
 
       // when
       const testRequest: request.Test = request(app.getHttpServer())
-        .post('/api/dummy')
+        .post('/dummy')
         .send({ value: '' });
 
       // then

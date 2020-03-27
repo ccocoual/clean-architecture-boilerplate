@@ -10,7 +10,11 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": [
+      "@types/jest",
+      "@types/supertest"
+    ]
   },
   "exclude": ["node_modules", "dist"]
 }
