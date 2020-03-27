@@ -20,6 +20,8 @@ module.exports = {
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'true',
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    '@typescript-eslint/unbound-method': 'off'
   },
 };

@@ -20,7 +20,7 @@ describe('uses_cases/CreateDummyData', () => {
   describe('execute()', () => {
     it('should create new dummy using given data', async () => {
       // given
-      const value: string = 'some dummy value';
+      const value = 'some dummy value';
 
       // when
       await createDummyData.execute(value);

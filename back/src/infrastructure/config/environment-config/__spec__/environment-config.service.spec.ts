@@ -201,7 +201,7 @@ describe('infrastructure/config/environment-config/EnvironmentConfigService', ()
   describe('get()', () => {
     it('should return variable from process.env', () => {
       // given
-      const expected: string = 'any value';
+      const expected = 'any value';
       process.env.TEST_ENV_VAR = expected;
       const environmentConfigService: EnvironmentConfigService = new EnvironmentConfigService();
 

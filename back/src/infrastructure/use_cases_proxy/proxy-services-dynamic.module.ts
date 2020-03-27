@@ -9,8 +9,8 @@ import { UseCaseProxy } from './use-case-proxy';
   imports: [RepositoriesModule],
 })
 export class ProxyServicesDynamicModule {
-  static GET_ALL_DUMMY_DATA_PROXY_SERVICE: string = 'GetAllDummyDataProxyService';
-  static CREATE_DUMMY_DATA_PROXY_SERVICE: string = 'CreateDummyDataProxyService';
+  static GET_ALL_DUMMY_DATA_PROXY_SERVICE = 'GetAllDummyDataProxyService';
+  static CREATE_DUMMY_DATA_PROXY_SERVICE = 'CreateDummyDataProxyService';
 
   static register(): DynamicModule {
     return {
@@ -19,12 +19,14 @@ export class ProxyServicesDynamicModule {
         {
           inject: [DatabaseDummyRepository],
           provide: ProxyServicesDynamicModule.GET_ALL_DUMMY_DATA_PROXY_SERVICE,
-          useFactory: (databaseDummyRepository: DatabaseDummyRepository) => new UseCaseProxy(new GetAllDummyData(databaseDummyRepository)),
+          useFactory: (databaseDummyRepository: DatabaseDummyRepository): UseCaseProxy<GetAllDummyData> =>
+            new UseCaseProxy(new GetAllDummyData(databaseDummyRepository)),
         },
         {
           inject: [DatabaseDummyRepository],
           provide: ProxyServicesDynamicModule.CREATE_DUMMY_DATA_PROXY_SERVICE,
-          useFactory: (databaseDummyRepository: DatabaseDummyRepository) => new UseCaseProxy(new CreateDummyData(databaseDummyRepository)),
+          useFactory: (databaseDummyRepository: DatabaseDummyRepository): UseCaseProxy<CreateDummyData> =>
+            new UseCaseProxy(new CreateDummyData(databaseDummyRepository)),
         },
       ],
       exports: [ProxyServicesDynamicModule.GET_ALL_DUMMY_DATA_PROXY_SERVICE, ProxyServicesDynamicModule.CREATE_DUMMY_DATA_PROXY_SERVICE],

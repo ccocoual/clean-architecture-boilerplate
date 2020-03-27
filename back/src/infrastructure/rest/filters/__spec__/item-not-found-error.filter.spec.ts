@@ -31,7 +31,7 @@ describe('infrastructure/rest/filters/ItemNotFoundErrorFilter', () => {
     it('should call response status method with http not found status code', () => {
       // given
       const itemNotFoundError: ItemNotFoundError = {} as ItemNotFoundError;
-      const expected: number = 404;
+      const expected = 404;
 
       // when
       new ItemNotFoundErrorFilter().catch(itemNotFoundError, mockArgumentsHost);

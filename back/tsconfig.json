@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "strict": false,
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
