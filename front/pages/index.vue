@@ -7,14 +7,10 @@
       </h1>
       <h2 class="subtitle"></h2>
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
+        <a class="button--green" href="https://nuxtjs.org/" target="_blank">
           Documentation
         </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
+        <a class="button--grey" href="https://github.com/nuxt/nuxt.js" target="_blank">
           GitHub
         </a>
       </div>
@@ -23,14 +19,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Logo from '~/components/Logo.vue'
+import Vue from 'vue';
+import Logo from '~/components/Logo.vue';
 
 export default Vue.extend({
   components: {
-    Logo
-  }
-})
+    Logo,
+  },
+});
 </script>
 
 <style>
@@ -44,8 +40,7 @@ export default Vue.extend({
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
