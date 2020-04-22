@@ -8,9 +8,8 @@ export class Dummy implements DummyInterface {
   value: string;
 
   constructor(value: string) {
-    if (isEmpty(value)) {
-      throw new InvalidDummyError('value cannot be null or empty');
-    }
+    if (isEmpty(value)) throw new InvalidDummyError('value cannot be null or empty');
+
     this.value = value;
   }
 }

@@ -5,7 +5,7 @@ describe('domain/Dummy', () => {
   describe('constructor()', () => {
     it('should bind value', () => {
       // given
-      const value = 'a value';
+      const value: string = 'a value';
 
       // when
       const result: Dummy = new Dummy(value);
@@ -27,7 +27,7 @@ describe('domain/Dummy', () => {
 
     it('should fail when value is empty', () => {
       // given
-      const value = '';
+      const value: string = '';
 
       // when
       const result = () => new Dummy(value);

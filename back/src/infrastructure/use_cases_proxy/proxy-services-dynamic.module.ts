@@ -9,8 +9,8 @@ import { UseCaseProxy } from './use-case-proxy';
   imports: [RepositoriesModule],
 })
 export class ProxyServicesDynamicModule {
-  static GET_ALL_DUMMY_DATA_PROXY_SERVICE = 'GetAllDummyDataProxyService';
-  static CREATE_DUMMY_DATA_PROXY_SERVICE = 'CreateDummyDataProxyService';
+  static GET_ALL_DUMMY_DATA_PROXY_SERVICE: string = 'GetAllDummyDataProxyService';
+  static CREATE_DUMMY_DATA_PROXY_SERVICE: string = 'CreateDummyDataProxyService';
 
   static register(): DynamicModule {
     return {

@@ -33,7 +33,7 @@ describe('infrastructure/rest/filters/InvalidDummyErrorFilter', () => {
     it('should call response status method with http bad request status code', () => {
       // given
       const invalidDummyError: InvalidDummyError = {} as InvalidDummyError;
-      const expected = 400;
+      const expected: number = 400;
 
       // when
       invalidDummyErrorFilter.catch(invalidDummyError, mockArgumentsHost);
