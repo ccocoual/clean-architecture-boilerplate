@@ -11,5 +11,6 @@ module.exports = {
     '.*\\.(vue)$': 'vue-jest',
   },
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/components/**/*.vue', '<rootDir>/pages/**/*.vue'],
+  collectCoverageFrom: ['<rootDir>/{components,pages,layouts}/**/*.vue', '<rootDir>/{services,plugins,store,middleware}/**/*.ts'],
+  globalSetup: '../jest-global-setup.js',
 };

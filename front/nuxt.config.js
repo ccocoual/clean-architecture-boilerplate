@@ -47,14 +47,26 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** You can extend webpack config here
+  axios: {
+    proxy: true,
+    /**
+     * baseURL is used in SSR mode and will be overridden if API_URL environment variable if present
      */
-    extend(config, ctx) {},
+    baseURL: 'http://localhost:3001/',
+    /**
+     * browserBaseURL is used in client browser and will be proxified if API_URL environment variable is present (see proxy configuration below)
+     */
+    browserBaseURL: '/',
   },
+  proxy: {
+    /**
+     * Configure proxy to dynamically route /api/** requests to API_URL if present
+     */
+    '/api': { target: process.env.API_URL || 'http://localhost:3001' },
+  },
+  server: {
+    port: process.env.PORT || 3000, // default: 3000
+    host: process.env.HOST || 'localhost', // default: localhost
+  },
+  ignore: ['**/*.spec.*'],
 };

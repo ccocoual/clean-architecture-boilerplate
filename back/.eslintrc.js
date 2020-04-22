@@ -1,4 +1,9 @@
 module.exports = {
+  root: true,
+  env: {
+    node: true,
+    jest: true,
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
@@ -11,17 +16,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
     'prettier/@typescript-eslint',
+    '../global-eslintrc.js',
   ],
-  root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
-  rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-explicit-any': 'error',
-    '@typescript-eslint/ban-ts-ignore': 'off',
-    '@typescript-eslint/unbound-method': 'off',
-  },
 };
