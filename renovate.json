@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "config:base",
+    "schedule:earlyMondays"
+  ],
+  "bumpVersion": "patch",
+  "packageRules": [
+    {
+      "packagePatterns": [".*"],
+      "groupName": "all-packages"
+    }
+  ],
+  "rebaseConflictedPrs": false,
+  "rebaseStalePrs": false
+}
