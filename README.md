@@ -77,11 +77,9 @@ When running `back` for the first time, or after database deletion, you have to 
 # Create database schema
 npm run typeorm:migration:run
 
-# Populate with companies
+# Populate database
 npm run typeorm:seed:run
 ```
-
-Note : Some company fields are filled with random numbers or strings using `faker` library. If you need more companies, you can add them in [companies-seed-migration-1580762928703.ts](back/database/seeds/companies-seed-migration-1580762928703.ts)
 
 
 #### REST API
