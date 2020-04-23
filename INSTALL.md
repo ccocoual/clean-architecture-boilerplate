@@ -31,7 +31,6 @@
   * __`PORT`__
     * Description: the port on which the application will listen
     * Example: `8080`
-    * Description: Zoho API calls cache time to live in seconds 
 
 #### How to use them in back
 Environment variables are accessible in `back` application using the `EnvironmentConfigService`, and are validated on startup using [Joi](https://github.com/hapijs/joi).
