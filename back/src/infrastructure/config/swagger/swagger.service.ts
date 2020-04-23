@@ -11,7 +11,7 @@ export class SwaggerService {
       .setTitle(`${projectName} API`)
       .setDescription(`The ${projectName} project API`)
       .setVersion(app.get(EnvironmentConfigService).get('npm_package_version'))
-      .addTag('dummy')
+      .addTag('Dummy')
       .build();
     const document: OpenAPIObject = SwaggerModule.createDocument(app, options);
     SwaggerModule.setup('api/doc', app, document);

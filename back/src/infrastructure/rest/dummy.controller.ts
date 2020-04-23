@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
-import { ApiBody, ApiResponse } from '@nestjs/swagger';
+import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Dummy } from '../../domain/dummy';
 import { CreateDummyData } from '../../use_cases/create-dummy-data';
 import { GetAllDummyData } from '../../use_cases/get-all-dummy-data';
@@ -12,6 +12,7 @@ import { DummyResponseSwagger } from './swagger/dummy-response.swagger';
 import { PostDummyRequestSwagger } from './swagger/post-dummy-request.swagger';
 
 @Controller('/dummy')
+@ApiTags('Dummy')
 export class DummyController {
   constructor(
     @Inject(ProxyServicesDynamicModule.GET_ALL_DUMMY_DATA_PROXY_SERVICE) private readonly getAllDummyDataProxyService: UseCaseProxy<GetAllDummyData>,
