@@ -10,7 +10,7 @@ export default class ApiService {
     this.$axios = $axios;
   }
 
-  getDummies(): Promise<DummyResponseInterface> {
+  getDummies(): Promise<DummyResponseInterface[]> {
     return this.$axios.$get('/api/dummy');
   }
 

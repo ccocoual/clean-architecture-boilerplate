@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/api-service.plugin' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -69,4 +69,9 @@ export default {
     host: process.env.HOST || 'localhost', // default: localhost
   },
   ignore: ['**/*.spec.*'],
+  build: {
+    loaders: {
+      scss: { sourceMap: false },
+    },
+  },
 };
