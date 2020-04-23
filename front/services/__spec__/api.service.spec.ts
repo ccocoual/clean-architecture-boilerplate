@@ -47,7 +47,7 @@ describe('services/ApiService', () => {
       $get.mockReturnValue(Promise.resolve(expected));
 
       // when
-      const result: DummyResponseInterface = await apiService.getDummies();
+      const result: DummyResponseInterface[] = await apiService.getDummies();
 
       // then
       expect(result).toBe(expected);
