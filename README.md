@@ -88,6 +88,3 @@ npm run typeorm:seed:run
 
 ### Environment variables
 See [INSTALL.md](INSTALL.md).
-
- 
-
