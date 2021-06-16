@@ -38,7 +38,7 @@
     "change-case": "4.1.2",
     "class-validator": "0.13.1",
     "helmet": "3.23.3",
-    "lodash": "4.17.19",
+    "lodash": "4.17.21",
     "pg": "8.6.0",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
