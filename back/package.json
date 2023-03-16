@@ -32,7 +32,7 @@
     "@hapi/joi": "17.1.1",
     "@nestjs/common": "7.6.17",
     "@nestjs/core": "7.6.17",
-    "@nestjs/platform-express": "7.6.17",
+    "@nestjs/platform-express": "8.2.6",
     "@nestjs/swagger": "4.8.0",
     "@nestjs/typeorm": "7.1.5",
     "change-case": "4.1.2",
